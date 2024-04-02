@@ -38,18 +38,54 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
-**Procedure**
+Full Adder:
+![image](https://github.com/S-Priyadharshan/FULL_ADDER_SUBTRACTOR/assets/145854138/43a2d1c5-40dd-4871-bd3a-2d347f16609b)
 
-Write the detailed procedure here
+
+Full Subtractor:
+![image](https://github.com/S-Priyadharshan/FULL_ADDER_SUBTRACTOR/assets/145854138/595bc2d2-a2a2-4581-ad7f-021bf17a372c)
+
+
+**Procedure**
+**STEP-1**
+Open Quartus Prime software.
+
+**STEP-2**
+Create a new project and select the target FPGA device.
+
+**STEP-3**
+Design and implement the full adder/subtractor using Verilog or VHDL within a new HDL file.
+
+**STEP-4**
+Add the HDL file to the project and compile the design.
+
+**STEP-5**
+Program the FPGA with the compiled design to test the functionality of the full adder/subtractor.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by: Priyadharshan S
+RegisterNumber: 212223240127
 */
-
+```
+module fulladdsub(a,b,c,sum,carry,BO,DIFF);
+input a,b,c;
+output sum,carry,BO,DIFF;
+assign sum=a^b^c;
+assign carry= a&b | a&c | b&c;
+wire a0;
+not (a0,a);
+assign BO= b&c | a0&c | a0&b;
+assign DIFF=a^b^c;
+endmodule
+```
 **RTL Schematic**
 
+![Screenshot 2024-04-02 150109](https://github.com/S-Priyadharshan/FULL_ADDER_SUBTRACTOR/assets/145854138/f421b463-e248-4009-8541-394b274e8b20)
+
 **Output Timing Waveform**
+![Screenshot 2024-04-02 145008](https://github.com/S-Priyadharshan/FULL_ADDER_SUBTRACTOR/assets/145854138/9539cecc-5b1d-44e8-8d94-bac81cdedac9)
 
 **Result:**
 
